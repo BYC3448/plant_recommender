@@ -203,6 +203,127 @@ with col1:
     
     st.markdown('</div>', unsafe_allow_html=True)
     
+    # 집의 향
+    st.markdown("### 🧭 집의 향")
+    st.markdown("우리집이 향하는 방향을 선택해주세요:")
+    house_direction = {}
+    
+    col_dir1, col_dir2, col_dir3 = st.columns(3)
+    with col_dir1:
+        house_direction["남향"] = st.checkbox("남향", help="남쪽을 향한 창문이 있는 경우")
+        house_direction["동향"] = st.checkbox("동향", help="동쪽을 향한 창문이 있는 경우")
+    with col_dir2:
+        house_direction["서향"] = st.checkbox("서향", help="서쪽을 향한 창문이 있는 경우")
+        house_direction["북향"] = st.checkbox("북향", help="북쪽을 향한 창문이 있는 경우")
+    with col_dir3:
+        house_direction["잘 모름"] = st.checkbox("잘 모름", help="집의 향을 정확히 모르는 경우")
+    
+    # 식물 배치 위치
+    st.markdown("### 📍 식물을 둘 위치")
+    st.markdown("식물을 우리집의 어느 어느 장소에 두고 싶나요?")
+    plant_location = {}
+    
+    col_loc1, col_loc2, col_loc3 = st.columns(3)
+    with col_loc1:
+        plant_location["베란다"] = st.checkbox("베란다", help="햇빛이 잘 들고 통풍이 좋은 베란다")
+        plant_location["방안 창가"] = st.checkbox("방안 창가", help="침실이나 방의 창문 근처")
+    with col_loc2:
+        plant_location["거실"] = st.checkbox("거실", help="가족이 주로 생활하는 거실 공간")
+        plant_location["주방"] = st.checkbox("주방", help="요리하는 주방 공간")
+    with col_loc3:
+        plant_location["화장실"] = st.checkbox("화장실", help="습도가 높은 화장실")
+        plant_location["잘 모름"] = st.checkbox("잘 모름 ", help="어디에 둘지 정하지 못한 경우")
+    
+    # 통풍 정도
+    st.markdown("### 💨 통풍 정도")
+    st.markdown("선택한 위치의 통풍 상태를 선택해주세요:")
+    ventilation = {}
+    
+    col_vent1, col_vent2, col_vent3 = st.columns(3)
+    with col_vent1:
+        ventilation["아주 잘됨"] = st.checkbox("아주 잘됨", help="창문을 열면 바람이 시원하게 통하는 경우")
+    with col_vent2:
+        ventilation["보통"] = st.checkbox("보통", help="적당히 바람이 통하는 경우")
+    with col_vent3:
+        ventilation["잘 안됨"] = st.checkbox("잘 안됨", help="바람이 잘 통하지 않는 밀폐된 공간")
+        ventilation["잘 모름"] = st.checkbox("잘 모름  ", help="통풍 정도를 잘 모르는 경우")
+    
+    # 빛이 드는 시간
+    st.markdown("### ☀️ 햇빛 시간")
+    st.markdown("하루 중 햇빛이 들어오는 시간대를 선택해주세요:")
+    sunlight_hours = {}
+    
+    col_hour1, col_hour2, col_hour3 = st.columns(3)
+    with col_hour1:
+        sunlight_hours["하루종일 (8시간 이상)"] = st.checkbox("하루종일 (8시간 이상)", help="아침부터 저녁까지 계속 햇빛이 드는 경우")
+        sunlight_hours["오전 또는 오후 (4-8시간)"] = st.checkbox("오전 또는 오후 (4-8시간)", help="반나절 정도 햇빛이 드는 경우")
+    with col_hour2:
+        sunlight_hours["잠깐만 (2-4시간)"] = st.checkbox("잠깐만 (2-4시간)", help="특정 시간대에만 햇빛이 드는 경우")
+        sunlight_hours["거의 안 들어옴 (2시간 미만)"] = st.checkbox("거의 안 들어옴 (2시간 미만)", help="햇빛이 거의 들어오지 않는 경우")
+    with col_hour3:
+        sunlight_hours["잘 모름"] = st.checkbox("잘 모름   ", help="햇빛 시간을 정확히 모르는 경우")
+    
+    # 빛의 강도
+    st.markdown("### 🌞 햇빛 강도")
+    st.markdown("들어오는 햇빛의 강도를 선택해주세요:")
+    sunlight_intensity = {}
+    
+    col_int1, col_int2, col_int3 = st.columns(3)
+    with col_int1:
+        sunlight_intensity["직사광선 (매우 밝음)"] = st.checkbox("직사광선 (매우 밝음)", help="태양빛이 직접 들어와 매우 밝은 경우")
+        sunlight_intensity["중간 강도 (적당히 밝음)"] = st.checkbox("중간 강도 (적당히 밝음)", help="적당히 밝은 간접광이 드는 경우")
+    with col_int2:
+        sunlight_intensity["약한 반사광 (은은함)"] = st.checkbox("약한 반사광 (은은함)", help="은은한 빛이 들어오는 경우")
+        sunlight_intensity["매우 약함 (어두움)"] = st.checkbox("매우 약함 (어두움)", help="빛이 거의 들어오지 않아 어두운 경우")
+    with col_int3:
+        sunlight_intensity["잘 모름"] = st.checkbox("잘 모름    ", help="햇빛 강도를 잘 모르는 경우")
+    
+    # 겨울철 최저 온도
+    st.markdown("### 🥶 겨울철 최저 온도")
+    st.markdown("겨울철 집안 온도 범위를 선택해주세요:")
+    winter_temp = {}
+    
+    col_wt1, col_wt2, col_wt3 = st.columns(3)
+    with col_wt1:
+        winter_temp["20°C 이상 (따뜻함)"] = st.checkbox("20°C 이상 (따뜻함)", help="겨울에도 따뜻하게 난방이 되는 경우")
+        winter_temp["15-20°C (약간 쌀쌀함)"] = st.checkbox("15-20°C (약간 쌀쌀함)", help="약간 쌀쌀하지만 견딜만한 온도")
+    with col_wt2:
+        winter_temp["10-15°C (춥다)"] = st.checkbox("10-15°C (춥다)", help="꽤 추운 온도 범위")
+        winter_temp["10°C 미만 (매우 춥다)"] = st.checkbox("10°C 미만 (매우 춥다)", help="매우 추운 환경")
+    with col_wt3:
+        winter_temp["잘 모름"] = st.checkbox("잘 모름     ", help="겨울철 온도를 정확히 모르는 경우")
+    
+    # 여름철 최고 온도
+    st.markdown("### 🥵 여름철 최고 온도")
+    st.markdown("여름철 집안 온도 범위를 선택해주세요:")
+    summer_temp = {}
+    
+    col_st1, col_st2, col_st3 = st.columns(3)
+    with col_st1:
+        summer_temp["30°C 이상 (매우 더움)"] = st.checkbox("30°C 이상 (매우 더움)", help="에어컨 없이는 견디기 힘든 더위")
+        summer_temp["25-30°C (더움)"] = st.checkbox("25-30°C (더움)", help="더우지만 견딜만한 온도")
+    with col_st2:
+        summer_temp["20-25°C (적당함)"] = st.checkbox("20-25°C (적당함)", help="쾌적한 온도 범위")
+        summer_temp["20°C 미만 (시원함)"] = st.checkbox("20°C 미만 (시원함)", help="시원한 환경")
+    with col_st3:
+        summer_temp["잘 모름"] = st.checkbox("잘 모름      ", help="여름철 온도를 정확히 모르는 경우")
+    
+    # 습도
+    st.markdown("### 💧 습도")
+    st.markdown("집안 습도 상태를 선택해주세요:")
+    humidity = {}
+    
+    col_hum1, col_hum2, col_hum3 = st.columns(3)
+    with col_hum1:
+        humidity["매우 습함"] = st.checkbox("매우 습함", help="습도가 매우 높아 끈적한 느낌")
+        humidity["약간 습함"] = st.checkbox("약간 습함", help="습도가 약간 높은 편")
+    with col_hum2:
+        humidity["보통"] = st.checkbox("보통 ", help="습도가 적당한 상태")
+        humidity["건조함"] = st.checkbox("건조함", help="습도가 낮아 건조한 느낌")
+    with col_hum3:
+        humidity["매우 건조함"] = st.checkbox("매우 건조함", help="습도가 매우 낮아 매우 건조함")
+        humidity["잘 모름"] = st.checkbox("잘 모름       ", help="습도 상태를 잘 모르는 경우")
+    
     st.markdown('</div>', unsafe_allow_html=True)
     
     # 추천 받기 버튼
