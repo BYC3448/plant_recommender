@@ -76,9 +76,6 @@ with col1:
     st.markdown('<div class="input-section">', unsafe_allow_html=True)
     st.markdown('<h3 class="section-header">🏠 우리집 환경 정보</h3>', unsafe_allow_html=True)
     
-with col1:
-    st.markdown('<div class="input-section">', unsafe_allow_html=True)
-    st.markdown('<h3 class="section-header">🏠 우리집 환경 정보</h3>', unsafe_allow_html=True)
     
     # 집의 향
     st.markdown("### 🧭 집의 향")
